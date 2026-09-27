@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero-banner">
+    <h1>Hello, {{ user.name }} 👋</h1>
+    <p>Have a great day ahead!</p>
+    <div class="hero-search">🔍 Search anything...</div>
+</div>
+
+<div class="section-title">
+    <h2>Quick Access</h2>
+</div>
+
+<div class="quick-grid">
+    <a href="/academics" class="quick-tile tile-purple">
+        <div class="icon-circle">📘</div>
+        <h4>Academics</h4>
+        <span class="desc">CGPA & deadlines</span>
+    </a>
+    <a href="/productivity" class="quick-tile tile-orange">
+        <div class="icon-circle">✅</div>
+        <h4>Productivity</h4>
+        <span class="desc">To-dos & timer</span>
+    </a>
+    <a href="/community" class="quick-tile tile-blue">
+        <div class="icon-circle">🤝</div>
+        <h4>Community</h4>
+        <span class="desc">Lost & found</span>
+    </a>
+    <a href="/academics" class="quick-tile tile-green">
+        <div class="icon-circle">📅</div>
+        <h4>Timetable</h4>
+        <span class="desc">Weekly classes</span>
+    </a>
+    <a href="/productivity" class="quick-tile tile-pink">
+        <div class="icon-circle">💰</div>
+        <h4>Expenses</h4>
+        <span class="desc">Track spending</span>
+    </a>
+    <a href="/career" class="quick-tile tile-yellow">
+        <div class="icon-circle">💼</div>
+        <h4>Career</h4>
+        <span class="desc">Placements</span>
+    </a>
+</div>
+
+<div class="section-title">
+    <h2>Your Modules</h2>
+</div>
+<div class="grid-2">
+    <div class="card"><h3>Academics</h3><p style="color:var(--text-muted);font-size:0.88rem;margin:8px 0 4px;">Track CGPA, timetable & deadlines</p><a href="/academics" class="btn">Go →</a></div>
+    <div class="card"><h3>Productivity</h3><p style="color:var(--text-muted);font-size:0.88rem;margin:8px 0 4px;">To-dos, timer & expenses</p><a href="/productivity" class="btn">Go →</a></div>
+    <div class="card"><h3>Community</h3><p style="color:var(--text-muted);font-size:0.88rem;margin:8px 0 4px;">Lost & found, doubt forum</p><a href="/community" class="btn">Go →</a></div>
+    <div class="card"><h3>Career</h3><p style="color:var(--text-muted);font-size:0.88rem;margin:8px 0 4px;">Track placements & internships</p><a href="/career" class="btn">Go →</a></div>
+</div>
+
+{% endblock %}

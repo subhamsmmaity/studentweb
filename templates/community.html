@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Community</h1>
+<div class="card">
+    <h3>Lost & Found</h3>
+    <form method="post" action="/community/lostfound/add" class="inline-form">
+        <input type="text" name="title" placeholder="Item title" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="text" name="contact" placeholder="Contact info" required>
+        <button type="submit">Post</button>
+    </form>
+    <ul>{% for i in items %}<li><b>{{ i.title }}</b>: {{ i.description }} — contact {{ i.contact }}</li>{% endfor %}</ul>
+</div>
+
+<div class="card">
+    <h3>Doubt Forum</h3>
+    <form method="post" action="/community/forum/add" class="inline-form">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <input type="text" name="question" placeholder="Your question" required>
+        <button type="submit">Post</button>
+    </form>
+    <ul>{% for p in posts %}<li><b>{{ p.subject }}</b>: {{ p.question }}</li>{% endfor %}</ul>
+</div>
+{% endblock %}

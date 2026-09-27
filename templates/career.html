@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Career Tracker</h1>
+<div class="card">
+    <form method="post" action="/career/add" class="inline-form">
+        <input type="text" name="company" placeholder="Company" required>
+        <input type="text" name="role" placeholder="Role" required>
+        <select name="status">
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="rejected">Rejected</option>
+        </select>
+        <input type="text" name="notes" placeholder="Notes (optional)">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for e in entries %}<li><b>{{ e.company }}</b> — {{ e.role }} — [{{ e.status }}] {{ e.notes }}</li>{% endfor %}
+    </ul>
+</div>
+{% endblock %}

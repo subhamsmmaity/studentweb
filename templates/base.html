@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Hub{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% if user %}
+    <div class="layout">
+        <nav class="sidebar">
+            <h2>🎓 Student Hub</h2>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/academics">Academics</a>
+            <a href="/productivity">Productivity</a>
+            <a href="/community">Community</a>
+            <a href="/career">Career</a>
+            <a href="/logout" class="logout">Logout</a>
+        </nav>
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    {% else %}
+        {% block auth_content %}{% endblock %}
+    {% endif %}
+</body>
+</html>

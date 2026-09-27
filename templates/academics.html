@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Academics</h1>
+<div class="card">
+    <h3>CGPA: {{ cgpa }}</h3>
+    <form method="post" action="/academics/subject/add" class="inline-form">
+        <input type="text" name="name" placeholder="Subject" required>
+        <input type="number" step="0.1" name="credit" placeholder="Credits" required>
+        <input type="number" step="0.1" name="marks" placeholder="Marks /10" required>
+        <button type="submit">Add Subject</button>
+    </form>
+    <ul>
+        {% for s in subjects %}<li>{{ s.name }} — {{ s.credit }} credits — {{ s.marks }}/10</li>{% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Assignments & Deadlines</h3>
+    <form method="post" action="/academics/assignment/add" class="inline-form">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <input type="date" name="due_date" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for a in assignments %}
+        <li>{{ a.title }} ({{ a.subject }}) — due {{ a.due_date }} — [{{ a.status }}]
+            {% if a.status != "done" %}<a href="/academics/assignment/{{ a.id }}/done">Mark done</a>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

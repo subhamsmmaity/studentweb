@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block auth_content %}
+<div class="auth-split-wrapper">
+    <div class="auth-illustration">
+        <div class="blob"></div>
+        <div class="emoji-person">🧑‍💻</div>
+    </div>
+    <div class="auth-form-panel">
+        <div class="auth-form-box">
+            <h1>Welcome Back!! 👋</h1>
+            {% if error %}<p class="error">{{ error }}</p>{% endif %}
+            <form method="post" action="/login">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="forgot-link"><a href="#">Forgot Password?</a></div>
+                <button type="submit" class="btn-login-wide">Login</button>
+            </form>
+            <div class="divider-or">OR</div>
+            <div class="social-row">
+                <a href="#" title="Google">🔴</a>
+                <a href="#" title="Facebook">🔵</a>
+                <a href="#" title="Apple">⚫</a>
+            </div>
+            <p class="signup-hint">Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
